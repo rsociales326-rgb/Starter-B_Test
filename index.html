@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business English Starter - Task-Based Practice Test</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#0f172a',
+            },
+            accent: {
+              50: '#fffbe3',
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    /* Print Styles for PDF Generation */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
+      header, footer, #unit-tabs, #bottom-nav-controls, .no-print {
+        display: none !important;
+      }
+      main {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .shadow-md, .shadow-sm, .shadow-2xs {
+        box-shadow: none !important;
+      }
+      .border {
+        border-color: #d1d5db !important;
+      }
+    }
+
+    .print-only {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between custom-scrollbar">
+
+  <!-- Printable Header for PDF Export -->
+  <div class="print-only p-6 border-b-2 border-slate-900 mb-6">
+    <div class="flex justify-between items-center">
+      <div>
+        <p class="text-xs font-bold text-amber-600 uppercase tracking-widest">Teacher Verónica Hermida</p>
+        <h1 class="text-2xl font-extrabold text-slate-900">Business English Starter - Student Assessment Report</h1>
+        <p class="text-xs text-slate-500 mt-1">Based on Business Result Starter (Units 5, 6, 7 & 8)</p>
+      </div>
+      <div class="text-right text-xs text-slate-600">
+        <p id="print-date" class="font-semibold"></p>
+        <p class="text-slate-400">Official Evaluation Transcript</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen Header Section -->
+  <header class="bg-slate-900 text-white shadow-md border-b-4 border-amber-500">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div>
+        <p class="text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase">Teacher Verónica Hermida</p>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-0.5">Business English Starter - Practice Test</h1>
+      </div>
+      <span class="text-xs font-medium px-3 py-1 bg-slate-800 text-slate-300 rounded-full border border-slate-700">Units 5 – 8</span>
+    </div>
+  </header>
+
+  <!-- Main Application Body -->
+  <main class="max-w-5xl mx-auto px-4 py-6 flex-grow w-full">
+    
+    <!-- Overall Progress and Score Banner -->
+    <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <h2 class="text-lg sm:text-xl font-bold text-slate-800">Workplace Task Assessment</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Real-world business tasks based on target outcomes from Units 5 to 8.</p>
+      </div>
+      <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+        <div class="bg-slate-100 px-4 py-2 rounded-xl text-xs sm:text-sm text-slate-700 font-semibold border border-slate-200">
+          Total Score: <span id="overall-score" class="text-brand-700 font-bold text-base">0</span> / <span id="total-possible">0</span>
+        </div>
+        <button onclick="resetAllTests()" class="text-xs bg-slate-200 hover:bg-slate-300 text-slate-700 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs for Units 5, 6, 7, 8 -->
+    <div class="flex overflow-x-auto gap-2 pb-2 mb-4 custom-scrollbar" id="unit-tabs">
+      <!-- Dynamic Tabs -->
+    </div>
+
+    <!-- Dynamic Unit Card Container -->
+    <div id="unit-content-container" class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
+      <!-- Unit dynamic HTML -->
+    </div>
+
+    <!-- Bottom Navigation Controls -->
+    <div id="bottom-nav-controls" class="flex justify-between items-center mt-6">
+      <button id="prev-unit-btn" onclick="navigateUnit(-1)" class="px-5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm transition flex items-center gap-2 shadow-sm disabled:opacity-40 disabled:cursor-not-allowed">
+        <i class="fa-solid fa-arrow-left"></i> Previous
+      </button>
+
+      <div class="text-xs sm:text-sm font-bold text-slate-600">
+        <span id="current-unit-display">Unit 5</span>
+      </div>
+
+      <button id="next-unit-btn" onclick="navigateUnit(1)" class="px-5 py-2.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-semibold text-sm transition flex items-center gap-2 shadow-sm">
+        Next <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Student Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-4 text-center text-xs mt-8 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 space-y-1">
+      <p class="font-medium text-slate-300">Teacher Verónica Hermida &bull; Business English Starter</p>
+      <p class="text-[11px] text-slate-500 italic">Adapted for educational purposes from Business Result Starter (Oxford University Press).</p>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script>
+    // Helper function to dynamically shuffle scrambled arrays so they are never pre-ordered
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      // Ensure the shuffled array is not identical to the original array (if length > 1)
+      if (arr.length > 1 && arr.join(' ') === array.join(' ')) {
+        const temp = arr[0];
+        arr[0] = arr[arr.length - 1];
+        arr[arr.length - 1] = temp;
+      }
+      return arr;
+    }
+
+    const rawUnitsData = [
+      {
+        id: 5,
+        number: "5",
+        title: "Unit 5: Products",
+        scenario: "Workplace Scenario: Company Profiles, Inquiries & Order Processing",
+        outcomes: [
+          "talk about company types and activities",
+          "ask about company products",
+          "say big numbers",
+          "order a product"
+        ],
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+        imageAlt: "Logistics and product warehouse",
+        tasks: [
+          {
+            title: "Task 1: Company Profile & Order Verification",
+            instruction: "Read the company profile and client email. Verify the factual information below for your logistics manager.",
+            contextText: "Global Tech Solutions is a multinational electronics manufacturer located in Tokyo. The company produces 500,000 smart sensors every month and sells them to automotive companies worldwide. Today, customer Sarah Jenkins sent an email asking to buy 15,000 units of Model S-2. The unit price is $250, making the total order value $3,750,000.",
+            questions: [
+              {
+                id: "u5_t1_q1",
+                type: "tf",
+                question: "1. Global Tech Solutions produces electronics and sells smart sensors.",
+                answer: "True"
+              },
+              {
+                id: "u5_t1_q2",
+                type: "tf",
+                question: "2. The customer wants to order 50,000 units of Model S-2.",
+                answer: "False"
+              },
+              {
+                id: "u5_t1_q3",
+                type: "tf",
+                question: "3. The total value of the client's order is $3,750,000.",
+                answer: "True"
+              }
+            ]
+          },
+          {
+            title: "Task 2: Processing the Client Purchase Order",
+            instruction: "Complete the email reply to the customer using the correct business phrases and numbers.",
+            questions: [
+              {
+                id: "u5_t2_q1",
+                type: "mcq",
+                question: "4. Client Email: 'Dear Sales Team, I would like to _____ an order for 15,000 smart sensors.'",
+                options: ["place", "make", "do"],
+                answer: "place"
+              },
+              {
+                id: "u5_t2_q2",
+                type: "fill",
+                question: "5. Write $3,750,000 in words: Three __________ seven hundred fifty thousand dollars.",
+                answer: "million",
+                placeholder: "Write the number word..."
+              },
+              {
+                id: "u5_t2_q3",
+                type: "mcq",
+                question: "6. Client Email: 'Could you please confirm if your company _____ these items in Europe?'",
+                options: ["manufactures", "manufacture", "manufacturing"],
+                answer: "manufactures"
+              }
+            ]
+          },
+          {
+            title: "Task 3: Responding to a Product Inquiry",
+            instruction: "Reorder the scrambled words to construct clear, professional answers to the client's questions.",
+            questions: [
+              {
+                id: "u5_t3_q1",
+                type: "order",
+                originalWords: ["Our", "company", "produces", "high-quality", "automotive", "parts"],
+                question: "7. Informing client about company activities:",
+                answer: "Our company produces high-quality automotive parts"
+              },
+              {
+                id: "u5_t3_q2",
+                type: "order",
+                originalWords: ["Each", "unit", "costs", "two", "hundred", "dollars"],
+                question: "8. Providing price information to the client:",
+                answer: "Each unit costs two hundred dollars"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 6,
+        number: "6",
+        title: "Unit 6: Entertaining",
+        scenario: "Workplace Scenario: Business Hospitality & Client Luncheon Planning",
+        outcomes: [
+          "talk about food and drink",
+          "talk about ability",
+          "say days and times",
+          "invite, accept and decline invitations"
+        ],
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop",
+        imageAlt: "Business restaurant dining",
+        tasks: [
+          {
+            title: "Task 1: Reviewing Client Lunch Schedules & Dietary Preferences",
+            instruction: "Read the organizer's memo for entertaining incoming clients from Berlin.",
+            contextText: "We are hosting our partners from Berlin this Thursday. Mr. Weber doesn't eat meat, so we need a restaurant with seafood or vegetarian dishes. Ms. Klein can attend lunch at 1:30 PM, but she can't stay after 3:00 PM because she has a flight. We reserved a table at Restaurant Marisol on Thursday at 1:30 PM.",
+            questions: [
+              {
+                id: "u6_t1_q1",
+                type: "tf",
+                question: "1. The business lunch is planned for Thursday at 1:30 PM.",
+                answer: "True"
+              },
+              {
+                id: "u6_t1_q2",
+                type: "tf",
+                question: "2. Mr. Weber prefers meat options on the menu.",
+                answer: "False"
+              },
+              {
+                id: "u6_t1_q3",
+                type: "mcq",
+                question: "3. Why can't Ms. Klein stay past 3:00 PM?",
+                options: ["She has a flight to catch.", "She has a dinner meeting.", "The restaurant closes."],
+                answer: "She has a flight to catch."
+              }
+            ]
+          },
+          {
+            title: "Task 2: Sending & Replying to Business Invitations",
+            instruction: "Select the most professional response to manage client invitations and schedules.",
+            questions: [
+              {
+                id: "u6_t2_q1",
+                type: "mcq",
+                question: "4. Host Email: 'Would you like to join us for dinner on Wednesday evening?'",
+                options: [
+                  "Thank you, I'd love to! What time?",
+                  "Yes, I want to eat food.",
+                  "Wednesday is yesterday."
+                ],
+                answer: "Thank you, I'd love to! What time?"
+              },
+              {
+                id: "u6_t2_q2",
+                type: "mcq",
+                question: "5. Politely declining due to schedule constraints: 'I'm afraid I _____ come at 2:00 PM because I have another meeting.'",
+                options: ["can't", "can", "am not"],
+                answer: "can't"
+              },
+              {
+                id: "u6_t2_q3",
+                type: "fill",
+                question: "6. Specifying exact schedule time: 'Our reservation is __________ 1:30 PM on Friday.'",
+                answer: "at",
+                placeholder: "in / on / at"
+              }
+            ]
+          },
+          {
+            title: "Task 3: Hospitality Dialogue at the Restaurant",
+            instruction: "Reorder the scrambled words to form natural phrases used when hosting clients at a restaurant.",
+            questions: [
+              {
+                id: "u6_t3_q1",
+                type: "order",
+                originalWords: ["Would", "you", "like", "some", "sparkling", "water"],
+                question: "7. Offering a drink to your client:",
+                answer: "Would you like some sparkling water"
+              },
+              {
+                id: "u6_t3_q2",
+                type: "order",
+                originalWords: ["Can", "we", "have", "the", "bill", "please"],
+                question: "8. Requesting the bill at the end of the meal:",
+                answer: "Can we have the bill please"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 7,
+        number: "7",
+        title: "Unit 7: Technology",
+        scenario: "Workplace Scenario: IT Setup, Equipment Management & Office Troubleshooting",
+        outcomes: [
+          "talk about office technology",
+          "talk about what's in your office",
+          "give instructions"
+        ],
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+        imageAlt: "Modern tech workstation",
+        tasks: [
+          {
+            title: "Task 1: Reading Office IT Onboarding Guide",
+            instruction: "Read the IT workstation guidelines for new staff and verify the procedures.",
+            contextText: "Welcome to the marketing department! Each desk features a desktop computer, a dual monitor setup, and a headset for video calls. This laptop on your left is your mobile unit for traveling. That printer near the window is for color documents. Please do not unplug these cables under your desk, as they connect to our secure company server.",
+            questions: [
+              {
+                id: "u7_t1_q1",
+                type: "tf",
+                question: "1. New marketing staff members receive a dual monitor setup and a headset.",
+                answer: "True"
+              },
+              {
+                id: "u7_t1_q2",
+                type: "tf",
+                question: "2. Staff should disconnect the cables under the desk when leaving.",
+                answer: "False"
+              },
+              {
+                id: "u7_t1_q3",
+                type: "mcq",
+                question: "3. Where is the color printer located?",
+                options: ["Near the window", "Under the desk", "In the main lobby"],
+                answer: "Near the window"
+              }
+            ]
+          },
+          {
+            title: "Task 2: Equipment Identification & Assignment",
+            instruction: "Complete office equipment assignments using contextual pointers and possession words.",
+            questions: [
+              {
+                id: "u7_t2_q1",
+                type: "mcq",
+                question: "4. Indicating equipment right here on your desk: '_____ laptop is new, but the screen needs clean water.'",
+                options: ["This", "That", "Those"],
+                answer: "This"
+              },
+              {
+                id: "u7_t2_q2",
+                type: "mcq",
+                question: "5. Pointing across the room: 'Can you reboot _____ router over there near the bookshelf?'",
+                options: ["that", "this", "these"],
+                answer: "that"
+              },
+              {
+                id: "u7_t2_q3",
+                type: "mcq",
+                question: "6. Department assignment: 'Alex and David left _____ tablets in the meeting room.'",
+                options: ["their", "his", "her"],
+                answer: "their"
+              }
+            ]
+          },
+          {
+            title: "Task 3: Tech Support & Troubleshooting Instructions",
+            instruction: "Form clear step-by-step instructions for colleagues setting up virtual meeting software.",
+            questions: [
+              {
+                id: "u7_t3_q1",
+                type: "order",
+                originalWords: ["First", "click", "on", "the", "green", "button"],
+                question: "7. Step 1 Instruction:",
+                answer: "First click on the green button"
+              },
+              {
+                id: "u7_t3_q2",
+                type: "fill",
+                question: "8. Complete instruction: 'Then __________ your company password into the box.'",
+                answer: "type",
+                placeholder: "Type action word (e.g., type, click)..."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 8,
+        number: "8",
+        title: "Unit 8: Travel",
+        scenario: "Workplace Scenario: Business Trips, Travel Reports & Meeting Logistics",
+        outcomes: [
+          "talk about transport and travel",
+          "talk about the past",
+          "say months and dates",
+          "arrange a meeting"
+        ],
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop",
+        imageAlt: "Business travel airport",
+        tasks: [
+          {
+            title: "Task 1: Executive Post-Trip Travel Report",
+            instruction: "Read the travel report summary submitted by the regional sales manager.",
+            contextText: "Last month, in March, Mr. Garcia traveled to Madrid for an international trade fair. He went by train on March 12th. The meetings with Spanish distributors were very successful, and the hotel facilities were excellent. He returned to London on March 16th.",
+            questions: [
+              {
+                id: "u8_t1_q1",
+                type: "tf",
+                question: "1. Mr. Garcia traveled to Madrid by train.",
+                answer: "True"
+              },
+              {
+                id: "u8_t1_q2",
+                type: "tf",
+                question: "2. The business trip took place in October.",
+                answer: "False"
+              },
+              {
+                id: "u8_t1_q3",
+                type: "mcq",
+                question: "3. On what date did Mr. Garcia return to London?",
+                options: ["March 16th", "March 12th", "March 20th"],
+                answer: "March 16th"
+              }
+            ]
+          },
+          {
+            title: "Task 2: Reporting Past Trip Details & Schedules",
+            instruction: "Complete the summary report using accurate past travel context and date prepositions.",
+            questions: [
+              {
+                id: "u8_t2_q1",
+                type: "mcq",
+                question: "4. 'The client presentations in Madrid _____ very effective.'",
+                options: ["were", "was", "are"],
+                answer: "were"
+              },
+              {
+                id: "u8_t2_q2",
+                type: "mcq",
+                question: "5. 'The flight back to London _____ on time.'",
+                options: ["was", "were", "is"],
+                answer: "was"
+              },
+              {
+                id: "u8_t2_q3",
+                type: "fill",
+                question: "6. Expressing exact date preposition: 'The follow-up conference is __________ April 22nd.'",
+                answer: "on",
+                placeholder: "in / on / at"
+              }
+            ]
+          },
+          {
+            title: "Task 3: Arranging a Follow-Up Meeting",
+            instruction: "Reorder phrases and select dialogue responses to schedule a follow-up business meeting.",
+            questions: [
+              {
+                id: "u8_t3_q1",
+                type: "mcq",
+                question: "7. 'When can we meet to discuss the trip report?'",
+                options: [
+                  "How about next Tuesday at 10:00 AM?",
+                  "I was traveling by plane last week.",
+                  "The hotel was very nice."
+                ],
+                answer: "How about next Tuesday at 10:00 AM?"
+              },
+              {
+                id: "u8_t3_q2",
+                type: "order",
+                originalWords: ["Does", "Thursday", "afternoon", "suit", "you"],
+                question: "8. Proposing a meeting time to a client:",
+                answer: "Does Thursday afternoon suit you"
+              }
+            ]
+          }
+        ]
+      }
+    ];
+
+    // Pre-process unit data to ensure scrambled questions are truly scrambled
+    const unitsData = rawUnitsData.map(unit => {
+      const clonedUnit = JSON.parse(JSON.stringify(unit));
+      clonedUnit.tasks.forEach(task => {
+        task.questions.forEach(q => {
+          if (q.type === 'order' && q.originalWords) {
+            q.scrambled = shuffleArray(q.originalWords);
+          }
+        });
+      });
+      return clonedUnit;
+    });
+
+    let currentUnitIdx = 0;
+    const userAnswers = {};
+    const unitCheckedState = {};
+
+    window.onload = function() {
+      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('print-date').innerText = `Date: ${today}`;
+      renderTabs();
+      renderUnit(currentUnitIdx);
+    };
+
+    function renderTabs() {
+      const container = document.getElementById('unit-tabs');
+      container.innerHTML = '';
+
+      unitsData.forEach((unit, idx) => {
+        const isActive = idx === currentUnitIdx;
+        const btn = document.createElement('button');
+        btn.onclick = () => switchUnit(idx);
+        btn.className = `flex-shrink-0 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm border transition flex items-center gap-2 ${
+          isActive 
+            ? 'bg-slate-900 text-white border-slate-900 shadow-sm' 
+            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+        }`;
+
+        const isChecked = unitCheckedState[idx];
+        let statusBadge = '';
+        if (isChecked) {
+          statusBadge = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>`;
+        }
+
+        btn.innerHTML = `
+          <span>Unit ${unit.number}</span>
+          ${statusBadge}
+        `;
+        container.appendChild(btn);
+      });
+
+      // Add Final Evaluation Tab
+      const isSummaryActive = currentUnitIdx === unitsData.length;
+      const summaryBtn = document.createElement('button');
+      summaryBtn.onclick = () => switchUnit(unitsData.length);
+      summaryBtn.className = `flex-shrink-0 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm border transition flex items-center gap-1.5 ${
+        isSummaryActive
+          ? 'bg-amber-500 text-slate-900 border-amber-500 shadow-sm'
+          : 'bg-amber-50 text-amber-900 border-amber-200 hover:bg-amber-100'
+      }`;
+      summaryBtn.innerHTML = `<i class="fa-solid fa-award text-xs"></i> Final Summary`;
+      container.appendChild(summaryBtn);
+
+      const displayElem = document.getElementById('current-unit-display');
+      if (currentUnitIdx < unitsData.length) {
+        displayElem.innerText = `Unit ${unitsData[currentUnitIdx].number}`;
+      } else {
+        displayElem.innerText = `Final Evaluation Summary`;
+      }
+
+      document.getElementById('prev-unit-btn').disabled = currentUnitIdx === 0;
+      
+      const nextBtn = document.getElementById('next-unit-btn');
+      if (currentUnitIdx === unitsData.length - 1) {
+        nextBtn.innerHTML = `Evaluate All & View PDF <i class="fa-solid fa-flag-checkered"></i>`;
+      } else if (currentUnitIdx === unitsData.length) {
+        nextBtn.innerHTML = `Print / Save PDF <i class="fa-solid fa-file-pdf"></i>`;
+      } else {
+        nextBtn.innerHTML = `Next Unit <i class="fa-solid fa-arrow-right"></i>`;
+      }
+
+      updateOverallScore();
+    }
+
+    function switchUnit(idx) {
+      if (idx >= 0 && idx < unitsData.length) {
+        currentUnitIdx = idx;
+        renderTabs();
+        renderUnit(currentUnitIdx);
+      } else if (idx === unitsData.length) {
+        // Automatically check remaining units upon opening summary
+        unitsData.forEach((_, i) => {
+          if (unitCheckedState[i] === undefined) unitCheckedState[i] = true;
+        });
+        currentUnitIdx = idx;
+        renderTabs();
+        renderFinalSummary();
+      }
+    }
+
+    function navigateUnit(dir) {
+      if (currentUnitIdx === unitsData.length && dir === 1) {
+        window.print();
+        return;
+      }
+      switchUnit(currentUnitIdx + dir);
+    }
+
+    function renderUnit(idx) {
+      const container = document.getElementById('unit-content-container');
+      const unit = unitsData[idx];
+      const isChecked = !!unitCheckedState[idx];
+
+      let html = `
+        <!-- Photorealistic Hero Banner -->
+        <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
+          <img src="${unit.image}" alt="${unit.imageAlt}" class="w-full h-full object-cover object-center opacity-80">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+          <div class="absolute bottom-4 left-6 right-6 text-white">
+            <span class="inline-block px-2.5 py-1 bg-amber-500 text-slate-900 text-xs font-bold rounded mb-1.5 uppercase tracking-wide">Unit ${unit.number} Task-Based Test</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">${unit.title}</h2>
+            <p class="text-xs sm:text-sm text-amber-300 font-semibold mt-1"><i class="fa-solid fa-briefcase mr-1"></i> ${unit.scenario}</p>
+          </div>
+        </div>
+
+        <!-- Outcomes Highlight Bar -->
+        <div class="bg-amber-50 border-b border-amber-200 p-4 sm:px-6">
+          <p class="text-xs font-bold text-amber-900 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-bullseye text-amber-600"></i> Targeted Business Outcomes — You Can:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            ${unit.outcomes.map(out => `
+              <div class="flex items-center gap-2 text-xs text-amber-900 font-medium">
+                <i class="fa-solid fa-check text-amber-600"></i> ${out}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="p-5 sm:p-6 space-y-8">
+      `;
+
+      unit.tasks.forEach(task => {
+        html += `
+          <div class="border-b border-slate-100 pb-6 last:border-0 last:pb-0">
+            <h3 class="text-sm font-bold text-brand-800 uppercase tracking-wide mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-amber-500 text-xs"></i> ${task.title}
+            </h3>
+            <p class="text-xs text-slate-500 italic mb-4">${task.instruction}</p>
+        `;
+
+        if (task.contextText) {
+          html += `
+            <div class="bg-slate-50 border-l-4 border-brand-600 p-4 rounded-r-xl mb-5 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal shadow-sm">
+              <span class="font-bold text-brand-900 block mb-1 uppercase text-xs tracking-wider"><i class="fa-solid fa-file-contract mr-1"></i> Workplace Brief / Document:</span>
+              "${task.contextText}"
+            </div>
+          `;
+        }
+
+        html += `<div class="space-y-4">`;
+
+        task.questions.forEach(q => {
+          const savedVal = userAnswers[q.id] || '';
+
+          html += `
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/40 shadow-2xs">
+              <p class="text-xs sm:text-sm font-semibold text-slate-800 mb-2.5">${q.question}</p>
+          `;
+
+          if (q.type === 'tf') {
+            html += `<div class="flex gap-3">`;
+            ['True', 'False'].forEach(option => {
+              const isSelected = savedVal === option;
+              let styleClass = 'bg-white border-slate-200 text-slate-700 hover:border-brand-600';
+
+              if (isChecked) {
+                if (option === q.answer) {
+                  styleClass = 'bg-emerald-50 border-emerald-500 text-emerald-900 font-bold';
+                } else if (isSelected && option !== q.answer) {
+                  styleClass = 'bg-rose-50 border-rose-400 text-rose-800 line-through';
+                }
+              }
+
+              html += `
+                <label class="flex-1 sm:flex-none sm:w-32 flex items-center justify-center gap-2 p-2.5 rounded-lg border text-xs sm:text-sm cursor-pointer transition ${styleClass}">
+                  <input type="radio" name="${q.id}" value="${option}" ${isSelected ? 'checked' : ''} ${isChecked ? 'disabled' : ''} 
+                    onchange="saveAns('${q.id}', '${option}')" class="text-brand-600 focus:ring-brand-500">
+                  <span>${option}</span>
+                </label>
+              `;
+            });
+            html += `</div>`;
+          } else if (q.type === 'mcq') {
+            html += `<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">`;
+            q.options.forEach(opt => {
+              const isSelected = savedVal === opt;
+              let styleClass = 'bg-white border-slate-200 text-slate-700 hover:border-brand-600';
+
+              if (isChecked) {
+                if (opt === q.answer) {
+                  styleClass = 'bg-emerald-50 border-emerald-500 text-emerald-900 font-bold';
+                } else if (isSelected && opt !== q.answer) {
+                  styleClass = 'bg-rose-50 border-rose-400 text-rose-800 line-through';
+                }
+              }
+
+              html += `
+                <label class="flex items-center gap-2 p-2.5 rounded-lg border text-xs sm:text-sm cursor-pointer transition ${styleClass}">
+                  <input type="radio" name="${q.id}" value="${opt}" ${isSelected ? 'checked' : ''} ${isChecked ? 'disabled' : ''} 
+                    onchange="saveAns('${q.id}', '${opt}')" class="text-brand-600 focus:ring-brand-500">
+                  <span>${opt}</span>
+                </label>
+              `;
+            });
+            html += `</div>`;
+          } else if (q.type === 'order') {
+            let inputStyle = 'bg-white border-slate-300';
+            const normUser = cleanText(savedVal);
+            const normAns = cleanText(q.answer);
+
+            if (isChecked) {
+              const isCorrect = normUser === normAns;
+              inputStyle = isCorrect ? 'bg-emerald-50 border-emerald-500 text-emerald-900 font-bold' : 'bg-rose-50 border-rose-400 text-rose-900 font-bold';
+            }
+
+            html += `
+              <div class="mb-2">
+                <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Click scrambled word chips to build phrase:</span>
+                <div class="flex flex-wrap gap-1.5 p-2.5 bg-slate-100 rounded-xl border border-slate-200">
+                  ${q.scrambled.map(w => `
+                    <button type="button" onclick="appendWordChip('${q.id}', '${w}')" ${isChecked ? 'disabled' : ''} 
+                      class="bg-white hover:bg-amber-100 text-slate-800 font-medium px-2.5 py-1 rounded-lg border border-slate-300 shadow-2xs text-xs sm:text-sm transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                      + ${w}
+                    </button>
+                  `).join('')}
+                  <button type="button" onclick="clearWordChip('${q.id}')" ${isChecked ? 'disabled' : ''} 
+                    class="ml-auto text-xs text-rose-600 hover:text-rose-800 font-bold px-2 py-1 rounded bg-rose-50 border border-rose-200 transition">
+                    Clear
+                  </button>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <input type="text" id="input_${q.id}" value="${savedVal}" ${isChecked ? 'disabled' : ''} placeholder="Click chips or type sentence here..." 
+                  oninput="saveAns('${q.id}', this.value)"
+                  class="w-full px-3.5 py-2.5 rounded-lg border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${inputStyle}">
+                ${isChecked ? `
+                  <span class="text-xs font-semibold text-emerald-800 bg-emerald-100 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                    <i class="fa-solid fa-check text-emerald-600"></i> Target phrasing: "${q.answer}"
+                  </span>
+                ` : ''}
+              </div>
+            `;
+          } else if (q.type === 'fill') {
+            let inputStyle = 'bg-white border-slate-300';
+            const normUser = cleanText(savedVal);
+            const normAns = cleanText(q.answer);
+
+            if (isChecked) {
+              const isCorrect = normUser === normAns;
+              inputStyle = isCorrect ? 'bg-emerald-50 border-emerald-500 text-emerald-900 font-bold' : 'bg-rose-50 border-rose-400 text-rose-900 font-bold';
+            }
+
+            html += `
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <input type="text" value="${savedVal}" ${isChecked ? 'disabled' : ''} placeholder="${q.placeholder}" 
+                  oninput="saveAns('${q.id}', this.value)"
+                  class="w-full sm:w-72 px-3.5 py-2 rounded-lg border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${inputStyle}">
+                ${isChecked ? `
+                  <span class="text-xs font-semibold text-emerald-800 bg-emerald-100 px-3 py-1.5 rounded-lg">
+                    Expected phrase: ${q.answer}
+                  </span>
+                ` : ''}
+              </div>
+            `;
+          }
+
+          html += `</div>`;
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      // Calculate score for current unit
+      let unitScore = 0;
+      let unitTotal = 0;
+      unit.tasks.forEach(t => {
+        t.questions.forEach(q => {
+          unitTotal++;
+          const userVal = cleanText(userAnswers[q.id] || '');
+          const correctVal = cleanText(q.answer);
+          if (userVal === correctVal) unitScore++;
+        });
+      });
+
+      html += `
+          <!-- Check Answers Action Bar -->
+          <div class="mt-6 pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              ${isChecked ? `
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold ${unitScore === unitTotal ? 'bg-emerald-100 text-emerald-900' : 'bg-amber-100 text-amber-900'}">
+                  <i class="fa-solid fa-chart-check"></i> Task Score: ${unitScore} / ${unitTotal} Correct
+                </div>
+              ` : `
+                <p class="text-xs text-slate-500"><i class="fa-solid fa-circle-info mr-1 text-slate-400"></i> Complete the task items and click "Check Answers".</p>
+              `}
+            </div>
+
+            <div class="flex gap-2 w-full sm:w-auto">
+              ${isChecked ? `
+                <button onclick="retryCurrentUnit()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-rotate-left"></i> Retry Task
+                </button>
+              ` : ''}
+              <button onclick="checkAnswers()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs sm:text-sm shadow transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check-double"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+
+    function appendWordChip(qId, word) {
+      const input = document.getElementById(`input_${qId}`);
+      if (!input) return;
+      let current = input.value.trim();
+      if (current.length > 0) {
+        current += " " + word;
+      } else {
+        current = word;
+      }
+      input.value = current;
+      saveAns(qId, current);
+    }
+
+    function clearWordChip(qId) {
+      const input = document.getElementById(`input_${qId}`);
+      if (!input) return;
+      input.value = "";
+      saveAns(qId, "");
+    }
+
+    function cleanText(text) {
+      return text.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, " ");
+    }
+
+    function saveAns(qId, value) {
+      userAnswers[qId] = value;
+    }
+
+    function checkAnswers() {
+      unitCheckedState[currentUnitIdx] = true;
+      renderTabs();
+      renderUnit(currentUnitIdx);
+    }
+
+    function retryCurrentUnit() {
+      const unit = unitsData[currentUnitIdx];
+      unit.tasks.forEach(task => {
+        task.questions.forEach(q => {
+          delete userAnswers[q.id];
+        });
+      });
+      unitCheckedState[currentUnitIdx] = false;
+      renderTabs();
+      renderUnit(currentUnitIdx);
+    }
+
+    function updateOverallScore() {
+      let score = 0;
+      let total = 0;
+
+      unitsData.forEach((unit, idx) => {
+        unit.tasks.forEach(task => {
+          task.questions.forEach(q => {
+            total++;
+            if (unitCheckedState[idx]) {
+              const userVal = cleanText(userAnswers[q.id] || '');
+              const correctVal = cleanText(q.answer);
+              if (userVal === correctVal) score++;
+            }
+          });
+        });
+      });
+
+      document.getElementById('overall-score').innerText = score;
+      document.getElementById('total-possible').innerText = total;
+    }
+
+    function renderFinalSummary() {
+      updateOverallScore();
+      let totalScore = 0;
+      let totalPossible = 0;
+
+      unitsData.forEach((unit, idx) => {
+        unit.tasks.forEach(task => {
+          task.questions.forEach(q => {
+            totalPossible++;
+            const userVal = cleanText(userAnswers[q.id] || '');
+            const correctVal = cleanText(q.answer);
+            if (unitCheckedState[idx] && userVal === correctVal) totalScore++;
+          });
+        });
+      });
+
+      const percentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
+      const container = document.getElementById('unit-content-container');
+
+      let html = `
+        <div class="p-6 sm:p-8 max-w-3xl mx-auto">
+          <!-- Award Header -->
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-slate-900 text-amber-400 text-2xl flex items-center justify-center mx-auto mb-3 shadow-lg border-2 border-amber-500">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <p class="text-xs font-bold text-amber-600 uppercase tracking-widest">Teacher Verónica Hermida</p>
+            <h2 class="text-2xl font-extrabold text-slate-800 mt-1">Task Evaluation & Performance Summary</h2>
+            <p class="text-xs text-slate-500 mt-1">Official Results for Units 5, 6, 7 & 8</p>
+          </div>
+
+          <!-- Score Card -->
+          <div class="my-6 p-6 rounded-2xl border border-slate-200 bg-slate-50 shadow-sm text-center flex flex-col sm:flex-row items-center justify-around gap-4">
+            <div>
+              <div class="text-5xl font-extrabold text-brand-700">${percentage}%</div>
+              <div class="text-xs uppercase tracking-wider font-bold text-slate-400 mt-1">Overall Grade</div>
+            </div>
+            <div class="h-12 w-px bg-slate-200 hidden sm:block"></div>
+            <div>
+              <div class="text-3xl font-extrabold text-slate-800">${totalScore} / ${totalPossible}</div>
+              <div class="text-xs font-semibold text-slate-500 mt-0.5">Tasks Mastered Correctly</div>
+            </div>
+          </div>
+
+          <!-- Unit Breakdown Table -->
+          <h3 class="font-bold text-slate-800 text-sm mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-amber-500"></i> Detailed Unit Results Breakdown:
+          </h3>
+          <div class="space-y-3 mb-8">
+      `;
+
+      unitsData.forEach((unit, idx) => {
+        let uScore = 0;
+        let uTotal = 0;
+        unit.tasks.forEach(task => {
+          task.questions.forEach(q => {
+            uTotal++;
+            const userVal = cleanText(userAnswers[q.id] || '');
+            const correctVal = cleanText(q.answer);
+            if (unitCheckedState[idx] && userVal === correctVal) uScore++;
+          });
+        });
+
+        const isDone = unitCheckedState[idx];
+        const uPercent = uTotal > 0 ? Math.round((uScore / uTotal) * 100) : 0;
+
+        html += `
+          <div class="p-4 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <div>
+              <span class="font-bold text-slate-800 text-sm block">${unit.title}</span>
+              <span class="text-xs text-slate-500">${unit.scenario}</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-semibold text-slate-600">${uScore} of ${uTotal} Correct (${uPercent}%)</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold ${isDone && uPercent >= 70 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}">
+                ${isDone ? (uPercent >= 70 ? 'Passed' : 'Needs Review') : 'Pending'}
+              </span>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+
+          <!-- PDF & Actions Bar -->
+          <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 no-print">
+            <div>
+              <h4 class="text-xs font-bold text-amber-900 uppercase">Need a PDF Copy for records?</h4>
+              <p class="text-xs text-amber-800 mt-0.5">Click below to print or download a clean transcript of your test results.</p>
+            </div>
+            <button onclick="window.print()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-file-pdf text-amber-400"></i> Download / Print PDF Report
+            </button>
+          </div>
+
+          <div class="text-center text-[11px] text-slate-400 italic mb-6">
+            Adapted for educational purposes from Business Result Starter (Oxford University Press).
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center no-print">
+            <button onclick="switchUnit(0)" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs sm:text-sm hover:bg-slate-100 transition">
+              <i class="fa-solid fa-arrow-left mr-2"></i> Review Unit 5
+            </button>
+            <button onclick="resetAllTests()" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs sm:text-sm hover:bg-slate-100 transition">
+              <i class="fa-solid fa-rotate-right mr-2"></i> Restart Test
+            </button>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+
+    function resetAllTests() {
+      for (let k in userAnswers) delete userAnswers[k];
+      for (let k in unitCheckedState) delete unitCheckedState[k];
+      currentUnitIdx = 0;
+      renderTabs();
+      renderUnit(0);
+    }
+  </script>
+</body>
+</html>
